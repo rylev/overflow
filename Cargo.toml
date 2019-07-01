@@ -1,0 +1,20 @@
+[package]
+name = "overflow"
+version = "0.0.1"
+edition = "2018"
+autotests = false
+
+[lib]
+proc-macro = true
+
+[[test]]
+name = "tests"
+path = "tests/progress.rs"
+
+[dev-dependencies]
+trybuild = "1.0"
+
+[dependencies]
+syn = { version = "0.15.39", features = ["full", "extra-traits"] }
+quote = "0.6"
+proc-macro2 = "0.4.30"
