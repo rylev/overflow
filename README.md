@@ -7,19 +7,19 @@ A convenience macro for changing the overflow properties of math expressions wit
 By default the following will fail in dev builds at runtime:
 
 ```rust
-(2.pow(20) << 20) + 2 * 2
+(2u8.pow(20) << 20) + 2 * 2;
 ```
 
 In order to make this wrap in dev and release builds you would need to write it this way:
 
 ```rust
-(2.wrapping_pow(20).wrapping_shl(20)).wrapping_add(2.wrapping_mul(2))
+(2u8.wrapping_pow(20).wrapping_shl(20)).wrapping_add(2u8.wrapping_mul(2))
 ```
 
 Or you could use Overflow and write the following:
 
 ```rust
-overflow::wrapping { (2.pow(20) << 20) + 2 * 2 }
+overflow::wrapping! { (2u8.pow(20) << 20) + 2u8 * 2 }
 ```
 
 The above converts the normal meth expression syntax directly into the `wrapping` variant from above.
