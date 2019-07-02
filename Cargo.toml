@@ -1,6 +1,10 @@
 [package]
 name = "overflow"
-version = "0.0.1"
+description = "Proc macros for changing the overflow behavior of math expressions"
+version = "0.1.0"
+authors = ["Ryan Levick<ryan.levick@gmail.com>"]
+repository = "https://github.com/rylev/overflow"
+license = "MIT"
 edition = "2018"
 autotests = false
 
@@ -16,5 +20,5 @@ trybuild = "1.0"
 
 [dependencies]
 syn = { version = "0.15.39", features = ["full", "extra-traits"] }
-quote = "0.6"
+quote = "0.6.12"
 proc-macro2 = "0.4.30"
