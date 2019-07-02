@@ -2,15 +2,21 @@
 
 A convenience macro for changing the overflow properties of math expressions without having to change those expressions (mostly).
 
+## Some Background
+
+By default Rust's math expressions (e.g., 2 * 9) panic on overflow in debug builds and overflow silently in release builds. While this is a fine default, you may want different behaivor. For instance, integer overflow may be expected behaivor. In that case you'll want to reach for the various overflow APIs available for Rust numbers (e.g., [`wrapping_mul`](https://doc.rust-lang.org/std/primitive.u32.html#method.wrapping_mul)). The issue with this however, is that you can no longer use normal math notation, instead needing to use cumbersome methods like `a.wrapping_add(b)` instead of `a + b`.
+
+Overflow lets you keep using normal math notation but still change the way that overflows are handled.
+
 ## Example
 
-By default the following will fail in dev builds at runtime:
+By default the following will fail in debug builds at runtime:
 
 ```rust
 (2u8.pow(20) << 20) + 2 * 2;
 ```
 
-In order to make this wrap in dev and release builds you would need to write it this way:
+In order to make this wrap in debug and release builds you would need to write it this way:
 
 ```rust
 (2u8.wrapping_pow(20).wrapping_shl(20)).wrapping_add(2u8.wrapping_mul(2))
