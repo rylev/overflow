@@ -36,5 +36,5 @@ Overflow is currently limited in the following:
 
 * The crate currently requires nightly because proc macros in expressions are not currently stable.
 * Because math operations can more easily propogate type inference information than method calls, you may have to add type information when using the macros that were not neceesary before.
-* Overflow behaivor is only affected at the top level (or within parenthesis) meaning that if you have math expressions inside of method invocations or inside of other macros, those expressions will not be converted.
+* Overflow behaviour is only affected at the top level (or within parenthesis) meaning that if you have math expressions inside of method invocations or inside of other macros, those expressions will not be converted.
 * Conversion of `pow` is extremely naive so if you call a `pow` method on some type, this will be converted to `wrapping_pow` even if that makes no sense for that type.
